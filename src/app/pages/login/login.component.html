@@ -1,0 +1,38 @@
+<div class="form-container">
+  <div class="form-login">
+    <div class="card">
+      <h3>Login</h3>
+      <form #loginForm="ngForm" *ngIf="!submitted"  (ngSubmit)="login()" novalidate>
+        <div class="form-row">
+
+          <div class="form-group col-md-12">
+            <label for="email">Email</label> &nbsp;<small class="text-danger">*</small>
+           <input type="email"  #email="ngModel" [(ngModel)]="fromModel.email"  [class.is-invalid]="email.invalid  && email.touched"  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            class="form-control" id="email" name="email" required>
+         <small [class.d-none]="email.valid || email.untouched" class="text-danger">Email is required..!</small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="password">Password</label>&nbsp;<small class="text-danger">*</small>
+            <input type="password" #password="ngModel" [(ngModel)]="fromModel.password"   [class.is-invalid]="password.invalid  && password.touched" minlength="8"  class="form-control" name="password" required/>
+             <small [class.d-none]="password.valid || password.untouched" class="text-danger">password Should be 8 or more character</small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="type">Login as</label>&nbsp;<small class="text-danger">*</small>
+            <select id="type" #type="ngModel" [(ngModel)]="fromModel.type"  [class.is-invalid]="type.invalid && type.touched" required class="form-control" name="type">
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+              <option value="sr.dev">SR.Dev</option>
+            </select>
+          </div>
+        </div>
+        
+        <button type="submit" [disabled]="loginForm.form.invalid"  class="btn btn-dark">Login</button>
+      </form>
+      <small>Don't have an account...! <a href="/signup">Signup</a> &nbsp;now</small>
+    </div>
+  </div>
+</div>

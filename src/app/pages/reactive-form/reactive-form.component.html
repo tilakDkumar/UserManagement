@@ -1,0 +1,262 @@
+<div class="container-fluid form-container">
+  <div class="card">
+  
+    <div class="card-body">
+         <button class="btn form-btn" routerLink='/user-info'> &lAarr;Go Back</button>
+      <h3>User Regestrion</h3>
+     
+      <!-- {{ registrationForm.value | json }} -->
+      <div class="formcontainer">
+        <form class="row g-3"  #userForm="ngForm" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="col-md-4">
+            <label for="firstname" class="form-label">First Name</label
+            ><small class="text-danger">*</small>
+            <input
+              formControlName="firstname"
+              type="text"
+              class="form-control"
+              required
+              [class.is-invalid]="
+                (registerFormControl.firstname.touched || submitted) &&
+                registerFormControl.firstname.errors?.required
+              "
+              id="firstname"
+              name="firstname"
+              placeholder="Your first name"
+            />
+            <small
+              [class.d-none]="
+                registerFormControl.firstname.valid ||
+                (registerFormControl.firstname.untouched &&
+                  registerFormControl.firstname.errors?.required)
+              "
+              class="text-danger"
+              >Field Required</small
+            >
+          </div>
+          <div class="col-md-4">
+            <label for="lastname" class="form-label">Last Name</label
+            ><small class="text-danger">*</small>
+            <input
+              formControlName="lastname"
+              [class.is-invalid]="
+                (registerFormControl.lastname.touched || submitted) &&
+                registerFormControl.lastname.errors?.required
+              "
+              type="text"
+              class="form-control"
+              id="lastname"
+              name="lastname"
+              required
+              placeholder="Your Last name"
+            />
+            <small
+              [class.d-none]="
+                registerFormControl.lastname.valid ||
+                (registerFormControl.lastname.untouched &&
+                  registerFormControl.lastname.errors?.required)
+              "
+              class="text-danger"
+              >Field Required</small
+            >
+          </div>
+
+          <div class="col-md-4">
+            <label for="email" class="form-label">Email</label
+            ><small class="text-danger">*</small>
+            <input
+              formControlName="email"
+              [class.is-invalid]="
+                (registerFormControl.email.touched || submitted) &&
+                registerFormControl.email.errors?.required
+              "
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="name@mail.com"
+            />
+            <small
+              [class.d-none]="
+                registerFormControl.email.valid ||
+                (registerFormControl.email.untouched &&
+                  registerFormControl.email.errors?.required)
+              "
+              class="text-danger"
+              >Enter Valid Email Address</small
+            >
+          </div>
+
+          <div class="col-md-4">
+            <label for="role" class="form-label">Status</label
+            ><small class="text-danger">*</small>
+            <select
+              formControlName="role"
+              id="role"
+              name="role"
+              class="form-select"
+              required
+              [class.is-invalid]="
+                (registerFormControl.role.touched || submitted) &&
+                registerFormControl.role.errors?.required
+              "
+            >
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+              <option value="sr.dev">SR.Dev</option>
+            </select>
+            <small
+              [class.d-none]="
+                registerFormControl.role.valid ||
+                (registerFormControl.role.untouched &&
+                  registerFormControl.role.errors?.required)
+              "
+              class="text-danger"
+              >Field Required</small
+            >
+          </div>
+
+          <div class="col-md-4">
+            <label for="mobile" class="form-label">Mobile</label
+            ><small class="text-danger">*</small>
+            <input
+              formControlName="phone"
+              type="tel"
+              class="form-control"
+              id="mobile"
+              name="mobile"
+              placeholder="should be 10 Digits"
+              [class.is-invalid]="
+                (registerFormControl.phone.touched || submitted) &&
+                registerFormControl.phone.errors?.required
+              "
+            />
+            <small
+              [class.d-none]="
+                registerFormControl.phone.valid ||
+                (registerFormControl.phone.untouched &&
+                  registerFormControl.phone.errors?.required)
+              "
+              class="text-danger"
+              >Mobile Number Must be 10 digits</small
+            >
+          </div>
+
+          <div class="col-md-4">
+            <label for="inputCountry" class="form-label">Organization</label
+            ><small class="text-danger">*</small>
+            <input
+              formControlName="organization"
+              [class.is-invalid]="
+                (registerFormControl.organization.touched || submitted) &&
+                registerFormControl.organization.errors?.required
+              "
+              id="inputCountry"
+              class="form-control"
+              name="country"
+              required
+              placeholder="enter organization"
+            />
+            <small
+              [class.d-none]="
+                registerFormControl.organization.valid ||
+                (registerFormControl.organization.untouched &&
+                  registerFormControl.organization.errors?.required)
+              "
+              class="text-danger"
+              >Field Required</small
+            >
+          </div>
+
+          <div class="col-md-4">
+            <label for="inputCity" class="form-label">Start Date</label
+            ><small class="text-danger">*</small>
+            <input
+              formControlName="start_date"
+              [class.is-invalid]="
+                (registerFormControl.start_date.touched || submitted) &&
+                registerFormControl.start_date.errors?.required
+              "
+              type="date"
+              class="form-control"
+              id="inputCity"
+              name="city"
+              required
+            />
+            <small
+              [class.d-none]="
+                registerFormControl.start_date.valid ||
+                (registerFormControl.start_date.untouched &&
+                  registerFormControl.start_date.errors?.required)
+              "
+              class="text-danger"
+              >Field Required</small
+            >
+          </div>
+          <div class="col-md-4">
+            <label for="inputZip" class="form-label">EndDate</label>
+            <input
+              formControlName="end_date"
+              type="date"
+              class="form-control"
+              id="inputZip"
+              name="zipcode"
+            />
+          </div>
+
+          <div class="col-md-4">
+            <label for="statusUser" class="form-label">Status</label
+            ><small class="text-danger">*</small>
+            <select
+              formControlName="status"
+              id="statusUser"
+              name="statusUser"
+              class="form-select"
+              required
+              [class.is-invalid]="
+                (registerFormControl.status.touched || submitted) &&
+                registerFormControl.status.errors?.required
+              "
+            >
+              <option selected disabled>Choose User Status</option>
+              <option value="active">Active</option>
+              <option value="disabled">Disabled</option>
+              <option value="deleted">Deleted</option>
+            </select>
+             <small
+              [class.d-none]="
+                registerFormControl.status.valid ||
+                (registerFormControl.status.untouched &&
+                  registerFormControl.status.errors?.required)
+              "
+              class="text-danger"
+              >Field Required</small
+            >
+            
+          </div>
+          <div class="col-md-4">
+            <label for="about" class="form-label">About</label>
+            <textarea
+              formControlName="about"
+              required
+              [class.is-invalid]="
+                (registerFormControl.about.touched || submitted) &&
+                registerFormControl.about.errors?.required
+              "
+              name="about"
+              class="form-control"
+              id="about"
+              cols="30"
+              rows="10"
+              placeholder=" About user......."
+            ></textarea>
+          </div>
+
+          <div class="col-12">
+            <button [disabled] ="userForm.form.invalid" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

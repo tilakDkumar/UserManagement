@@ -1,0 +1,17 @@
+.nav-items{
+    margin: 5px;
+    padding-bottom: 3px;
+    background-color: rgb(116, 115, 115);
+}
+.nav-item{
+padding: 8px;
+
+}
+.nav-link{
+    color: white;
+    font-weight: 300;
+}
+
+.user-nfo{
+    padding-top: 3px;
+}

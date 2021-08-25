@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="nav-items">
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active"  routerLink ="/register"
+          >Add User <i class="fas fa-user-plus"></i
+        ></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn" (click)="logout()">Logout <i class="fas fa-sign-out-alt"></i></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="user-nfo">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mobile No</th>
+          <th scope="col">Role</th>
+          <th scope="col">Organization</th>
+          <th scope="col">Start-Date</th>
+          <th scope="col">End-Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">About</th>
+          <th scope="col">Created-Date</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr scope="row"  *ngFor="let data of userData">
+          <td>{{data.firstname}}</td>
+          <td>{{data.lastname}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.phone}}</td>
+          <td>{{data.role}}</td>
+          <td>{{data.organization}}</td>
+          <td>{{data.start_date}}</td>
+          <td>{{data.end_date}}</td>
+          <td>{{data.status}}</td>
+          <td>{{data.about}}</td>
+          <td>{{data.created_date}}</td>
+          <td>
+            <button class="btn"  [routerLink] ="['/edit-user',data._id]" ><i class="fas fa-edit"></i></button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteData(data._id)"><i class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

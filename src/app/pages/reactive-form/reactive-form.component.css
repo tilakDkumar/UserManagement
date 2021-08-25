@@ -1,0 +1,13 @@
+.card{
+    padding: 10px;
+}
+.form-container{
+    margin-top: 2px;
+    padding-top: 10px;
+}
+
+.form-btn{
+    float: right;
+    background-color: gray;
+    color: #fff;
+}
